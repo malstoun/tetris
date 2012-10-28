@@ -9,22 +9,31 @@ namespace Tetris
 {
     class Figure
     {
-        Point position;
-        protected string color;
-        protected bool[,] map = new bool[4, 4];
+        public Point pt; // ай ай ай, публично нехорошо делать, но лень иначе
+        protected byte color;
+        public bool[,] map;
 
         public Figure()
         {
-            
+            pt = new Point(3, -1);
+            map = new bool[4, 4];
         }
 
         public void Rotate()
         {
-            bool[,] map = new bool[4,4];
+            bool[,] map = new bool[4, 4];
             for (int i = 0; i < 4; i++)
                 for (int j = 0; j < 4; j++)
                     map[3 - j, i] = this.map[i, j];
             this.map = map;
+        }
+
+        public byte Color
+        {
+            get
+            {
+                return color;
+            }
         }
     }
 
@@ -32,11 +41,11 @@ namespace Tetris
     {
         public Line()
         {
-            color = "red";
-            map[0, 0] = true;
+            color = 1;
             map[1, 0] = true;
-            map[2, 0] = true;
-            map[3, 0] = true;
+            map[1, 1] = true;
+            map[1, 2] = true;
+            map[1, 3] = true;
         }
     }
 
@@ -44,7 +53,7 @@ namespace Tetris
     {
         public Square()
         {
-            color = "white";
+            color = 2;
             map[1, 1] = true;
             map[1, 2] = true;
             map[2, 1] = true;
@@ -56,12 +65,11 @@ namespace Tetris
     {
         public Crane()
         {
-            color = "yellow";
-            map[3, 0] = true;
-            map[0, 1] = true;
-            map[1, 1] = true;
+            color = 3;
+            map[1, 2] = true;
+            map[2, 0] = true;
             map[2, 1] = true;
-            map[3, 0] = true;
+            map[2, 2] = true;
         }
     }
 
@@ -69,10 +77,10 @@ namespace Tetris
     {
         public Lightning()
         {
-            color = "orange";
-            map[0, 1] = true;
+            color = 4;
+            map[1, 0] = true;
             map[1, 1] = true;
-            map[1, 2] = true;
+            map[2, 1] = true;
             map[2, 2] = true;
         }
     }
