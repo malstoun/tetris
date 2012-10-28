@@ -142,7 +142,7 @@ namespace Tetris
                 }
 
                 if (flag1)
-                    break;
+                    continue;
 
                 for (int k = i; k > 0; k--)
                     for (int m = 0; m < 10; m++)
@@ -173,8 +173,9 @@ namespace Tetris
             bool flag1 = false;
             if (fig != null)
             {
-                if (this.myCanvas1.background[fig.pt.Y, fig.pt.X-1] != 0)
-                    return;
+                if (fig.pt.X - 1 > -1)
+                    if (this.myCanvas1.background[fig.pt.Y, fig.pt.X-1] != 0)
+                        return;
 
                 for (int i = 0; i < 4; i++)
                 {
@@ -207,6 +208,10 @@ namespace Tetris
             bool flag1 = false;
             if (fig != null)
             {
+                if (fig.pt.X + 1 < 10)
+                    if (this.myCanvas1.background[fig.pt.Y, fig.pt.X + 1] != 0)
+                        return;
+
                 for (int i = 3; i >= 0; i--)
                 {
                     for (int j = 0; j < 4; j++)
@@ -229,6 +234,25 @@ namespace Tetris
                 figToCanv();
                 this.myCanvas1.Refresh();
 
+            }
+        }
+
+        private void button2_MouseDown(object sender, MouseEventArgs e)
+        {
+            timeRefrash_Tick(new object(), new EventArgs());
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (timeRefrash.Enabled)
+            {
+                timeRefrash.Enabled = false;
+                ((Button)(sender)).Text = "Start";
+            }
+            else
+            {
+                timeRefrash.Enabled = true;
+                ((Button)(sender)).Text = "Stop";
             }
         }
     }
