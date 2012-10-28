@@ -48,15 +48,23 @@ namespace Tetris
                         {
                             case 1:
                                 e.Graphics.FillRectangle(Brushes.Red, j * 21, i * 21, 22, 22);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21, i * 21 + 21, j * 21 + 22, i * 21 + 21);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21 + 22, i * 21 + 21, j * 21 + 21, i * 21);
                                 break;
                             case 2:
-                                e.Graphics.FillRectangle(Brushes.White, j * 21, i * 21, 22, 22);
+                                e.Graphics.FillRectangle(Brushes.Blue, j * 21, i * 21, 22, 22);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21, i * 21 + 21, j * 21 + 22, i * 21 + 21);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21 + 22, i * 21 + 21, j * 21 + 21, i * 21);
                                 break;
                             case 3:
                                 e.Graphics.FillRectangle(Brushes.Yellow, j * 21, i * 21, 22, 22);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21, i * 21 + 21, j * 21 + 22, i * 21 + 21);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21 + 22, i * 21 + 21, j * 21 + 21, i * 21);
                                 break;
                             case 4:
                                 e.Graphics.FillRectangle(Brushes.Orange, j * 21, i * 21, 22, 22);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21, i * 21 + 21, j * 21 + 22, i * 21 + 21);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21 + 22, i * 21 + 21, j * 21 + 21, i * 21);
                                 break;
                         }
                     }
@@ -74,15 +82,23 @@ namespace Tetris
                         {
                             case 1:
                                 e.Graphics.FillRectangle(Brushes.Red, j * 21, i * 21, 22, 22);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21, i * 21 + 21, j * 21 + 22, i * 21 + 21);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21 + 22, i * 21 + 21, j * 21 + 21, i * 21);
                                 break;
                             case 2:
-                                e.Graphics.FillRectangle(Brushes.White, j * 21, i * 21, 22, 22);
+                                e.Graphics.FillRectangle(Brushes.Blue, j * 21, i * 21, 22, 22);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21, i * 21 + 21, j * 21 + 22, i * 21 + 21);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21 + 22, i * 21 + 21, j * 21 + 21, i * 21);
                                 break;
                             case 3:
                                 e.Graphics.FillRectangle(Brushes.Yellow, j * 21, i * 21, 22, 22);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21, i * 21 + 21, j * 21 + 22, i * 21 + 21);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21 + 22, i * 21 + 21, j * 21 + 21, i * 21);
                                 break;
                             case 4:
                                 e.Graphics.FillRectangle(Brushes.Orange, j * 21, i * 21, 22, 22);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21, i * 21 + 21, j * 21 + 22, i * 21 + 21);
+                                e.Graphics.DrawLine(new Pen(Color.FromArgb(100, Color.Black), 2), j * 21 + 22, i * 21 + 21, j * 21 + 21, i * 21);
                                 break;
                         }
                     }
