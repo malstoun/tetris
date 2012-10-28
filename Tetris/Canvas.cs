@@ -10,9 +10,8 @@ namespace Tetris
 {
     public sealed class myCanvas : Control
     {
-        const int figureHeight = 20;
-        const int figureWidth = 20;
-        byte[,] matrix = new byte[10, 20];
+        public byte[,] background = new byte[20, 10];
+        public byte[,] matrix = new byte[20, 10];
 
 
         public myCanvas()
@@ -20,9 +19,6 @@ namespace Tetris
             SetStyle(ControlStyles.UserPaint, true);
             SetStyle(ControlStyles.AllPaintingInWmPaint, true);
             SetStyle(ControlStyles.OptimizedDoubleBuffer, true);
-
-            matrix[3, 5] = 255;
-            matrix[3, 4] = 255;
 
             this.Visible = true;
         }
@@ -32,24 +28,65 @@ namespace Tetris
             e.Graphics.FillRectangle(Brushes.Black, e.ClipRectangle);
 
             for (int i = 0; i <= 420; i += 21)
-                e.Graphics.DrawLine(Pens.White, 0, i, 211, i);
+                e.Graphics.DrawLine(Pens.White, 0, i, 211, i); // Горизонтальные линии
             for (int i = 0; i <= 211; i += 21)
-                e.Graphics.DrawLine(Pens.White, i, 0, i, 421);
+                e.Graphics.DrawLine(Pens.White, i, 0, i, 421); // Вертикальные линии
 
+            DrawBackground(e);
             DrawFigures(e);
             //base.OnPaint(e);
         }
 
+        private void DrawBackground(PaintEventArgs e)
+        {
+            for (int i = 0; i < 20; i++)
+                for (int j = 0; j < 10; j++)
+                {
+                    if (background[i, j] != 0)
+                    {
+                        switch (background[i, j])
+                        {
+                            case 1:
+                                e.Graphics.FillRectangle(Brushes.Red, j * 21, i * 21, 22, 22);
+                                break;
+                            case 2:
+                                e.Graphics.FillRectangle(Brushes.White, j * 21, i * 21, 22, 22);
+                                break;
+                            case 3:
+                                e.Graphics.FillRectangle(Brushes.Yellow, j * 21, i * 21, 22, 22);
+                                break;
+                            case 4:
+                                e.Graphics.FillRectangle(Brushes.Orange, j * 21, i * 21, 22, 22);
+                                break;
+                        }
+                    }
+                }
+        }
+
         private void DrawFigures(PaintEventArgs e)
         {
-            for (int i = 0; i < 10; i++)
-                for (int j = 0; j < 20; j++)
+            for (int i = 0; i < 20; i++)
+                for (int j = 0; j < 10; j++)
                 {
                     if (matrix[i, j] != 0)
-                        e.Graphics.FillRectangle(Brushes.Red, i * 21, j * 21, 22, 22);
+                    {
+                        switch (matrix[i, j])
+                        {
+                            case 1:
+                                e.Graphics.FillRectangle(Brushes.Red, j * 21, i * 21, 22, 22);
+                                break;
+                            case 2:
+                                e.Graphics.FillRectangle(Brushes.White, j * 21, i * 21, 22, 22);
+                                break;
+                            case 3:
+                                e.Graphics.FillRectangle(Brushes.Yellow, j * 21, i * 21, 22, 22);
+                                break;
+                            case 4:
+                                e.Graphics.FillRectangle(Brushes.Orange, j * 21, i * 21, 22, 22);
+                                break;
+                        }
+                    }
                 }
-
-
         }
     }
 }
