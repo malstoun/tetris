@@ -128,6 +128,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Down";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button2_MouseDown);
             // 
             // button1
             // 
@@ -135,8 +136,9 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(102, 23);
             this.button1.TabIndex = 0;
-            this.button1.Text = "Up";
+            this.button1.Text = "Stop";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button5
             // 
