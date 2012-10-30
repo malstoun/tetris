@@ -87,7 +87,7 @@ namespace Tetris
 
         private void figureStep()
         {
-            fig.pt.Y += 1;
+            fig.PtY += 1;
         }
 
         private void figToCanv()
@@ -98,9 +98,9 @@ namespace Tetris
                 {
                     if (fig.map[i, j])
                     {
-                        if ((i + fig.pt.Y > -1) && (i + fig.pt.Y < 20))
-                            if ((j + fig.pt.X > -1) && (j + fig.pt.X < 10))
-                                this.myCanvas1.matrix[i + fig.pt.Y, j + fig.pt.X] = fig.Color;
+                        if ((i + fig.Pt.Y > -1) && (i + fig.Pt.Y < 20))
+                            if ((j + fig.Pt.X > -1) && (j + fig.Pt.X < 10))
+                                this.myCanvas1.matrix[i + fig.Pt.Y, j + fig.Pt.X] = fig.Color;
                     }
                 }
             }
@@ -114,8 +114,8 @@ namespace Tetris
                 {
                     if (fig.map[i, j])
                     {
-                        if ((i + fig.pt.Y > -1) && (i + fig.pt.Y < 20))
-                            if (this.myCanvas1.background[i + fig.pt.Y, j + fig.pt.X] != 0)
+                        if ((i + fig.Pt.Y > -1) && (i + fig.Pt.Y < 20))
+                            if (this.myCanvas1.background[i + fig.Pt.Y, j + fig.Pt.X] != 0)
                                 flag = true;
                             else
                                 continue;
@@ -150,6 +150,8 @@ namespace Tetris
 
                 for (int m = 0; m < 10; m++)
                     this.myCanvas1.background[0, m] = 0;
+
+                ++i;
             }
         }
 
@@ -173,8 +175,8 @@ namespace Tetris
             bool flag1 = false;
             if (fig != null)
             {
-                if (fig.pt.X - 1 > -1)
-                    if (this.myCanvas1.background[fig.pt.Y, fig.pt.X-1] != 0)
+                if (fig.Pt.X - 1 > -1)
+                    if (this.myCanvas1.background[fig.Pt.Y, fig.Pt.X-1] != 0)
                         return;
 
                 for (int i = 0; i < 4; i++)
@@ -190,10 +192,10 @@ namespace Tetris
                 }
 
 
-                if (fig.pt.X - 1 < -flagLocal)
+                if (fig.Pt.X - 1 < -flagLocal)
                     return;
 
-                fig.pt.X--;
+                fig.PtX--;
                 for (int j = 0; j < 20; j++)
                     for (int k = 0; k < 10; k++)
                         this.myCanvas1.matrix[j, k] = 0;
@@ -208,8 +210,8 @@ namespace Tetris
             bool flag1 = false;
             if (fig != null)
             {
-                if (fig.pt.X + 1 < 10)
-                    if (this.myCanvas1.background[fig.pt.Y, fig.pt.X + 1] != 0)
+                if (fig.Pt.X + 1 < 10)
+                    if (this.myCanvas1.background[fig.Pt.Y, fig.Pt.X + 1] != 0)
                         return;
 
                 for (int i = 3; i >= 0; i--)
@@ -224,10 +226,10 @@ namespace Tetris
                         break;
                 }
 
-                if (!((fig.pt.X + 4 + 1) <= (flagLocal + 10)))
+                if (!((fig.Pt.X + 4 + 1) <= (flagLocal + 10)))
                     return;
 
-                fig.pt.X++;
+                fig.PtX++;
                 for (int j = 0; j < 20; j++)
                     for (int k = 0; k < 10; k++)
                         this.myCanvas1.matrix[j, k] = 0;
