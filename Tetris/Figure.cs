@@ -9,9 +9,9 @@ namespace Tetris
 {
     class Figure
     {
-        public Point pt; // ай ай ай, публично нехорошо делать, но лень иначе
+        protected Point pt; 
         protected byte color;
-        public bool[,] map;
+        public bool[,] map; // ай ай ай, публично нехорошо делать, но лень иначе
 
         public Figure()
         {
@@ -33,6 +33,42 @@ namespace Tetris
             get
             {
                 return color;
+            }
+        }
+
+        public Point Pt
+        {
+            get
+            {
+                return pt;
+            }
+            set
+            {
+                pt = value;
+            }
+        }
+
+        public int PtX
+        {
+            get
+            {
+                return pt.X;
+            }
+            set
+            {
+                pt.X = value;
+            }
+        }
+
+        public int PtY
+        {
+            get
+            {
+                return pt.Y;
+            }
+            set
+            {
+                pt.Y = value;
             }
         }
     }
