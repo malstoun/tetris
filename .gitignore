@@ -1,2 +1,8 @@
 Tetris/bin/
 Tetris/obj/
+
+*.suo
+
+Tetris.suo
+
+Tetris.suo
